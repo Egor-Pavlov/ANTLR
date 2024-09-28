@@ -12,6 +12,7 @@ using System.Text.RegularExpressions;
 using System.Windows;
 using System.Diagnostics;
 using Antlr4.Runtime;
+using FastColoredTextBoxNS;
 
 namespace CompilersLab1
 {
@@ -610,7 +611,50 @@ namespace CompilersLab1
 
         private void AntlrBTN_Click(object sender, EventArgs e)
         {
-            
+            var text = TabControl1.SelectedTab.Controls[0].Text.Split('\n');
+            OutRTB.Text = "";
+            foreach (var line in text)
+            {
+                try
+                {
+                    var errorListener = new CustomErrorListener();
+
+                    // Создаем поток символов для ANTLR
+                    AntlrInputStream inputStream = new AntlrInputStream(line);
+
+                    // Создаем лексер
+                    var lexer = new IdentifierGrammarLexer(inputStream);
+
+                    lexer.RemoveErrorListeners();
+                    lexer.AddErrorListener(errorListener);
+
+                    // Создаем токены на основе лексера
+                    CommonTokenStream tokenStream = new CommonTokenStream(lexer);
+
+                    // Создаем парсер
+                    var parser = new IdentifierGrammarParser(tokenStream);
+
+                    parser.RemoveErrorListeners();
+                    parser.AddErrorListener(errorListener);
+
+                    // Парсим текст с помощью стартового правила грамматики
+                    IdentifierGrammarParser.ZContext context = parser.z();
+
+                    var output = errorListener.GetErrors();
+                    if (output == string.Empty)
+                    {
+                        OutRTB.AppendText("Ошибок не обнаружено");
+                    }
+                    OutRTB.AppendText(output);
+
+                }
+
+                catch (Exception ex)
+                {
+                    // Вывод ошибок в случае неудачи
+                    OutRTB.Text = "Ошибка: " + ex.Message;
+                }
+            }
         }
     }
 }

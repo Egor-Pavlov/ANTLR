@@ -610,35 +610,7 @@ namespace CompilersLab1
 
         private void AntlrBTN_Click(object sender, EventArgs e)
         {
-            // Получаем текст из поля ввода
-            string input = txtInput.Text;
-
-            try
-            {
-                // Создаем поток символов для ANTLR
-                AntlrInputStream inputStream = new AntlrInputStream(input);
-
-                // Создаем лексер
-                IdentifierGrammarLexer lexer = new IdentifierGrammarLexer(inputStream);
-
-                // Создаем токены на основе лексера
-                CommonTokenStream tokenStream = new CommonTokenStream(lexer);
-
-                // Создаем парсер
-                IdentifierGrammarParser parser = new IdentifierGrammarParser(tokenStream);
-
-                // Парсим текст с помощью стартового правила грамматики
-
-                MyGrammarParser.StartRuleContext context = parser.startRule();
-
-                // Обработка успешного парсинга (например, вывод структуры дерева)
-                lblResult.Text = "Парсинг успешен: " + context.ToStringTree(parser);
-            }
-            catch (Exception ex)
-            {
-                // Вывод ошибок в случае неудачи
-                lblResult.Text = "Ошибка: " + ex.Message;
-            }
+            
         }
     }
 }

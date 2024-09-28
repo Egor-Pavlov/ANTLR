@@ -59,6 +59,10 @@
     <Compile Include="Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
+    <Compile Include="IdentifierGrammarBaseListener.cs" />
+    <Compile Include="IdentifierGrammarLexer.cs" />
+    <Compile Include="IdentifierGrammarListener.cs" />
+    <Compile Include="IdentifierGrammarParser.cs" />
     <Compile Include="Lexem.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -78,6 +82,7 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+    <None Include="grammatic.g4" />
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>

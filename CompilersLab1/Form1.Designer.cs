@@ -74,6 +74,7 @@
             this.TabControl1 = new System.Windows.Forms.TabControl();
             this.label2 = new System.Windows.Forms.Label();
             this.OutRTB = new System.Windows.Forms.RichTextBox();
+            this.AntlrBTN = new System.Windows.Forms.ToolStripButton();
             this.toolStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
@@ -90,7 +91,8 @@
             this.Change,
             this.TextBttn,
             this.Start,
-            this.Help});
+            this.Help,
+            this.AntlrBTN});
             this.toolStrip1.Location = new System.Drawing.Point(0, 0);
             this.toolStrip1.Name = "toolStrip1";
             this.toolStrip1.Size = new System.Drawing.Size(899, 35);
@@ -523,6 +525,16 @@
             this.OutRTB.TabIndex = 21;
             this.OutRTB.Text = "";
             // 
+            // AntlrBTN
+            // 
+            this.AntlrBTN.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
+            this.AntlrBTN.Image = ((System.Drawing.Image)(resources.GetObject("AntlrBTN.Image")));
+            this.AntlrBTN.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.AntlrBTN.Name = "AntlrBTN";
+            this.AntlrBTN.Size = new System.Drawing.Size(75, 32);
+            this.AntlrBTN.Text = "ANTLR";
+            this.AntlrBTN.Click += new System.EventHandler(this.AntlrBTN_Click);
+            // 
             // Form1
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
@@ -603,6 +615,7 @@
         private System.Windows.Forms.RichTextBox OutRTB;
         private System.Windows.Forms.TabControl TabControl1;
         private System.Windows.Forms.ToolStripMenuItem CloseThisTab;
+        private System.Windows.Forms.ToolStripButton AntlrBTN;
     }
 }
 
